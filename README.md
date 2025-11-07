@@ -19,5 +19,5 @@ using **Robot Framework** and **SeleniumLibrary**.
 |--------------|--------------|
 | `login_test.robot` | Inloggen van een gebruiker |
 | `order_test.robot` | Winkelmand vullen en bestellen |
-   `contact_form_test.robot` | Contactformulier invullen en versturen |
-| 
+| `contact_form_test.robot` | Contactformulier invullen en versturen |
+ 
