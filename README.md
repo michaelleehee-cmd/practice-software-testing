@@ -18,6 +18,6 @@ using **Robot Framework** and **SeleniumLibrary**.
 | Testbestand | Omschrijving |
 |--------------|--------------|
 | `login_test.robot` | Inloggen van een gebruiker |
-| `contact_form_test.robot` | Contactformulier invullen en versturen |
 | `order_test.robot` | Winkelmand vullen en bestellen |
-| `order_with_count_test.robot` | Winkelmand + totaalbedrag controleren |
+   `contact_form_test.robot` | Contactformulier invullen en versturen |
+| 
