@@ -125,8 +125,8 @@ Fill and Submit Contact Form
 
 #Ordering keywords
 Go to shoppingcart
-    Wait Until Element Is Visible       ${SHOPPINGCART}
     Scroll Element Into View            ${SHOPPINGCART}
+    Wait Until Element Is Visible       ${SHOPPINGCART}
     Wait Until Page Contains Element    ${SHOPPINGCART}
     Wait Until Keyword Succeeds         10x    500ms    Click Element    ${SHOPPINGCART}    
 
