@@ -1,6 +1,6 @@
 *** Settings ***
 Library      JSONLibrary
-Library      SeleniumLibrary 
+Library      SeleniumLibrary    
 Library      OperatingSystem
 Library      String
 Resource     variables.robot
@@ -38,21 +38,18 @@ Open Browser To Base URL
 #Login keywords with valid user credentials
 Create And Remember User
     ${email}=    Generate Unique Email
-    ${password}=    Set Variable    ${USER_PASSWORD}
 
     # Save user to JSON file for re-use later
-    Create File    data/current_user.json    {"email": "${email}", "password": "${password}"}
+    Create File    data/current_user.json    {"email": "${email}"}
 
     # Make the values available in this test run too
     Set Suite Variable    ${CREATED_EMAIL}     ${email}
-    Set Suite Variable    ${CREATED_PASSWORD}  ${password}
 
     Sign in user   
 
 Load Stored User
     ${user}=    Load JSON From File    data/current_user.json
     Set Suite Variable    ${CREATED_EMAIL}      ${user["email"]}
-    Set Suite Variable    ${CREATED_PASSWORD}   ${user["password"]}
 
 Login User Failure
     Wait Until Page Contains Element    ${SIGN_IN_BUTTON}    timeout=5s
@@ -128,9 +125,9 @@ Fill and Submit Contact Form
 
 #Ordering keywords
 Go to shoppingcart
+    Wait Until Element Is Visible       ${SHOPPINGCART}
     Scroll Element Into View            ${SHOPPINGCART}
     Wait Until Page Contains Element    ${SHOPPINGCART}
-    Wait Until Element Is Visible       ${SHOPPINGCART}
     Wait Until Keyword Succeeds         10x    500ms    Click Element    ${SHOPPINGCART}    
 
 Validate Cart Totals
@@ -186,7 +183,7 @@ Validate Cart Totals
 
 Add Products To Cart Handtool
     Wait Until Page Contains Element    ${CATAGORY_BUTTON} 
-    Click Element                       ${CATAGORY_BUTTON} 
+    Click Element                       ${CATAGORY_BUTTON}
     Scroll Element Into View            ${HANDTOOLS}   
     Click Element                       ${HANDTOOLS}
     Wait Until Page Contains Element    ${HANDTOOLPRODUCT}
